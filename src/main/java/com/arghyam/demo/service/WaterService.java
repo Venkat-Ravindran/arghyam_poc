@@ -42,4 +42,13 @@ public class WaterService {
         }
     }
 
+    public Water fetchWaterByName(String name) {
+        try {
+            return waterRepository.findByVillageName(name);
+        } catch (Exception e) {
+            // Handle exception or log the error
+            throw new RuntimeException("Failed to fetch water by ID: " + e.getMessage());
+        }
+    }
+
 }

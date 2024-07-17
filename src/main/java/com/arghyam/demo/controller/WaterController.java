@@ -32,6 +32,12 @@ public class WaterController {
         return ResponseEntity.ok(savedProduct);
     }
 
+    @GetMapping(value = "/getWater/{villageName}")
+    public ResponseEntity<Water> getAllProducts(@PathVariable("villageName") String village){
+        Water waterDetails = waterService.fetchWaterByName(village);
+        return ResponseEntity.ok(waterDetails);
+    }
+
     @GetMapping(value = "/getWater")
     public ResponseEntity<List<Water>> getAllProducts() {
         List<Water> waterDetails = waterService.fetchAllWaterDetails();
